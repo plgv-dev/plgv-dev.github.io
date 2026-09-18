@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7BD4RM2GY"></script>
+<script>
+document.addEventListener('click',function(e){
+  const a=e.target.closest('a[href]');
+  if(!a||typeof gtag!=='function') return;
+  const href=a.getAttribute('href')||'';
+  if(href.startsWith('https://wa.me/')) gtag('event','whatsapp_click',{link_url:href.split('?')[0]});
+  else if(href.startsWith('tel:')) gtag('event','phone_click');
+  else if(href.startsWith('mailto:')) gtag('event','email_click');
+});
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K7BD4RM2GY');
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prince Link Global Ventures | Digital, Creative & Business Solutions</title>
@@ -76,5 +96,5 @@ footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 </main>
 <footer><div class="container footer"><span>© <span id="year"></span> Prince Link Global Ventures. All rights reserved.</span><span class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:plgventures.dev@gmail.com">Email</a></span></div></footer>
 <a class="whatsapp" href="https://wa.me/233506944673?text=Hello%20Prince%20Link%20Global%20Ventures%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬 <span>WhatsApp</span></a>
-<script>function toggleMenu(){const n=document.getElementById('navlinks');n.classList.toggle('open')}document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();function sendWA(e){e.preventDefault();const n=document.getElementById('name').value.trim(),p=document.getElementById('phone').value.trim(),s=document.getElementById('service').value,d=document.getElementById('details').value.trim();const msg=`Hello Prince Link Global Ventures.%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0AService: ${encodeURIComponent(s)}%0AProject details: ${encodeURIComponent(d)}`;window.open('https://wa.me/233506944673?text='+msg,'_blank','noopener');}</script>
+<script>function toggleMenu(){const n=document.getElementById('navlinks');n.classList.toggle('open')}document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();function sendWA(e){e.preventDefault();const n=document.getElementById('name').value.trim(),p=document.getElementById('phone').value.trim(),s=document.getElementById('service').value,d=document.getElementById('details').value.trim();const msg=`Hello Prince Link Global Ventures.%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0AService: ${encodeURIComponent(s)}%0AProject details: ${encodeURIComponent(d)}`;if(typeof gtag==='function'){gtag('event','generate_lead',{method:'WhatsApp enquiry form'});}window.open('https://wa.me/233506944673?text='+msg,'_blank','noopener');}</script>
 </body></html>
